@@ -32,11 +32,11 @@ url = './src/database/materials_properties.csv'
 initial_velocity = 0
 df = pd.read_csv(url, dtype=object)
 
-indexes = [0,11] # materials definition discharged
+indexes = [10,21] # materials definition discharged
 
 geometry_unit = indexes # Geometry
 
-dt = 1e-4
+dt = 5e-5
 nodes = 1100
 
 cfl = False
@@ -46,7 +46,7 @@ layer_number = 256 # The condition is that the half of the number must be an eve
 interpolation_points = 5
 rescale_t = False
 rescale_x = False
-name = f'nodes_f{nodes}_dt_f{dt}_layer_n_{layer_number}_0'
+name = f'100_dt_{dt}_courant_0'
 nodes = method_switcher.get("implicit")(indexes, geometry_unit  ,layer_number, n_steps, dt, initial_velocity, df, name, saving_path, 
                                         main_path, interpolation_points, cfl, nodes, rescale_t, rescale_x, 
                                         rescale_thickness=False, case = False, dimensionless=False, input_plot=False, save=True, 
